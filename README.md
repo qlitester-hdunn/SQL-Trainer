@@ -4,6 +4,7 @@ Some practice querying a database using an ORM (in this case Prisma).
 ### Setting up MySQL
 
 Via Homebrew: `brew install mysql` (ref: https://formulae.brew.sh/formula/mysql)
+
 Via npm: `brew install mysql` (ref: https://www.npmjs.com/package/mysql#install)
 
 ### Setting up Prisma

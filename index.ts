@@ -1,13 +1,9 @@
-//  @TODO for more practice: Ouput # of employees per department (limit 10 if a lot) sorted by most employees.
-
 import { employees_gender, PrismaClient } from '@prisma/client'
 
 
 const prisma = new PrismaClient()
 
 async function main() {
-  // let numberOfEmployeesPerDepartment = [];
-
   const allEmployees = await prisma.employees.findMany({
     select: {
       first_name: true,

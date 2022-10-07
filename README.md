@@ -17,3 +17,7 @@ Ref: https://medium.com/@mandeepkaur1/a-list-of-mysql-commands-c4d0d244aa5c
 ### Prisma Introspection
 
 ref: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/introspection-typescript-postgres
+
+### Prisma Querying the Database
+
+ref: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres

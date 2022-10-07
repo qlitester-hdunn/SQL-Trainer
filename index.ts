@@ -1,4 +1,4 @@
-//  Ouput # of employees per department (limit 10 if a lot) sorted by most employees.
+//  @TODO for more practice: Ouput # of employees per department (limit 10 if a lot) sorted by most employees.
 
 import { employees_gender, PrismaClient } from '@prisma/client'
 

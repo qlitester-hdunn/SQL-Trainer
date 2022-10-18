@@ -30,7 +30,7 @@ async function main(prisma: PrismaClient) {
     gender: employees_gender.F,
     hire_date: new Date(),
   })
-  const updated_employee = await employees.findByEmployeeNo(1444444443) as Object
+  const updated_employee = await employees.findByEmployeeNo(1444444443)
   console.log(`\nEmployee Information Update!:`);
   console.log(updated_employee);
 

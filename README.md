@@ -10,7 +10,7 @@ Clone the test database repo:
 git clone https://github.com/datacharmer/test_db.git
 ```
 
-To set up SQL server with employee data run:
+To set up MySQL server with employee data run:
 ```
 cd test_db
 mysql.server start

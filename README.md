@@ -5,20 +5,48 @@ Some practice querying a database using an ORM (in this case Prisma).
 
 Via Homebrew: `brew install mysql` (ref: https://formulae.brew.sh/formula/mysql)
 
-Via npm: `npm install mysql` (ref: https://www.npmjs.com/package/mysql#install)
+Clone the test database repo:
+```
+git clone https://github.com/datacharmer/test_db.git
+```
+
+To set up SQL server with employee data run:
+```
+cd test_db
+mysql.server start
+mysql -u root
+CREATE DATABASE employees;
+use employees;
+source employees.sql;
+exit
+```
+Note: After initial set up the only command that needs to be ran before running any tests is `mysql.server start`
 
 ### Setting up Prisma
 
-Ref: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgres
+To set up Prisma, in the MySQL directory run:
+```
+npm install
+```
 
-### MySQL Commands
+Create a .env file in the MySQL directory with the proper DATABASE_URL set. If the above MySQL set up steps were followed exactly, the following should work in the .env file:
+```
+DATABASE_URL="mysql://root@localhost:3306/employees"
+```
 
-Ref: https://medium.com/@mandeepkaur1/a-list-of-mysql-commands-c4d0d244aa5c
+After setting the DATABASE_URL, run:
+```
+npx prisma db pull
+npm install @prisma/client
+npx prisma generate
+```
 
-### Prisma Introspection
+### Helpful Links
 
-ref: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/introspection-typescript-postgres
+MySQL Commands ref: https://medium.com/@mandeepkaur1/a-list-of-mysql-commands-c4d0d244aa5c
 
-### Prisma Querying the Database
+Setting up Prisma ref: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgres
 
-ref: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres
+Prisma Introspection ref: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/introspection-typescript-postgres
+
+Prisma Querying the Database ref: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres

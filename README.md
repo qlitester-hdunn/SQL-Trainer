@@ -41,6 +41,17 @@ npm install @prisma/client
 npx prisma generate
 ```
 
+### Running tests
+Before running any tests start the MySQL server by running:
+```
+mysql.server start
+```
+
+To run a test file run:
+```
+npx ts-node path/to/file.ts
+```
+
 ### Helpful Links
 
 MySQL Commands ref: https://medium.com/@mandeepkaur1/a-list-of-mysql-commands-c4d0d244aa5c

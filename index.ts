@@ -1,10 +1,12 @@
-import { employees, employees_gender, PrismaClient } from '@prisma/client'
+import { departments, employees, employees_gender, PrismaClient } from '@prisma/client'
 import { Employees } from './employee'
+import { Departments } from './departments'
 import { pluralize } from './helpers'
 
 const prisma = new PrismaClient()
 
 async function main(prisma: PrismaClient) {
+  const departments = new Departments(prisma.departments);
   const employees = new Employees(prisma.employees);
 
   // CREATE (ADD):
@@ -37,6 +39,33 @@ async function main(prisma: PrismaClient) {
   // DESTROY (DELETE):
   const deletedEmployeeCount = await employees.deleteEmployees([1444444443])
   console.log(`\n${deletedEmployeeCount} ${pluralize(deletedEmployeeCount, "record")} deleted\n`);
+
+  // ADD DEPARTMENT
+  await departments.addDepartment({
+    dept_no: 't001',
+    dept_name: 'Test Automation'
+  });
+  const addedDepartment = await departments.findByDepartmentNo('t001');
+  console.log(`\nDepartment Created:`);
+  console.log(addedDepartment);
+
+  // UPDATE DEPARTMENT
+  await departments.updateDepartment({
+    dept_no: 't001',
+    dept_name: 'Test Automation Update'
+  });
+  const updatedDepartment = await departments.findByDepartmentNo('t001');
+  console.log(`\nDepartment Updated:`);
+  console.log(updatedDepartment);
+
+  // Most recently added department number
+  const most_recent_department_no = await departments.getLatestAddedDepartmentNo();
+  console.log(`\nMost Recently Added Department Number:`);
+  console.log(most_recent_department_no);
+
+  // DELETE DEPARTMENT
+  const deletedDepartmentCount = await departments.deleteDepartment(['t001'])
+  console.log(`\n${deletedDepartmentCount} ${pluralize(deletedDepartmentCount, "record")} deleted\n`);
 }
 
 main(prisma)

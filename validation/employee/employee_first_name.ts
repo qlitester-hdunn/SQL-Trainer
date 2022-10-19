@@ -1,5 +1,5 @@
 import { employees, employees_gender, PrismaClient } from '@prisma/client'
-import { Employees } from '../employee'
+import { Employees } from '../../employee'
 
 const prisma = new PrismaClient()
 

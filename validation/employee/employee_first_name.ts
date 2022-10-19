@@ -1,20 +1,12 @@
-import { employees, employees_gender, PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import { Employees } from '../../employee'
+import { test_employee } from '../../employee_data';
 
 const prisma = new PrismaClient()
 
 async function main(prisma: PrismaClient) {
     const employees = new Employees(prisma.employees);
-    const latest_added_employee_no = await employees.getLatestAddedEmployeeNo();
-
-    const expected_employee_information = {
-        emp_no: latest_added_employee_no + 1,
-        birth_date: new Date(),
-        first_name: "Test",
-        last_name: "Tester",
-        gender: employees_gender.M,
-        hire_date: new Date()
-    }
+    const expected_employee_information = await test_employee();
 
     await employees.addEmployee({
         emp_no: expected_employee_information.emp_no,

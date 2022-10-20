@@ -12,11 +12,11 @@ export async function test_employee() {
     const latest_added_employee_no = latest_added_employee[0].emp_no;
     const employee_data = {
         emp_no: latest_added_employee_no + 1,
-        birth_date: new Date(),
+        birth_date: new Date('1995-12-17T00:00:00.000Z'),
         first_name: "Test",
         last_name: "Tester",
         gender: employees_gender.M,
-        hire_date: new Date()
+        hire_date: new Date('2022-10-20T00:00:00.000Z')
     };
     return employee_data;
 }

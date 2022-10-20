@@ -1,6 +1,7 @@
-import { departments, employees, employees_gender, PrismaClient } from '@prisma/client'
+import { dept_emp, departments, employees, employees_gender, PrismaClient } from '@prisma/client'
 import { Employees } from './employee'
 import { Departments } from './departments'
+import { Department_Employees } from './department_employees'
 import { pluralize } from './helpers'
 
 const prisma = new PrismaClient()
@@ -8,6 +9,7 @@ const prisma = new PrismaClient()
 async function main(prisma: PrismaClient) {
   const departments = new Departments(prisma.departments);
   const employees = new Employees(prisma.employees);
+  const department_employees = new Department_Employees(prisma.dept_emp);
 
   // CREATE (ADD):
   const addedEmployee: employees | null = await employees.addEmployee({
@@ -62,6 +64,32 @@ async function main(prisma: PrismaClient) {
   const most_recent_department_no = await departments.getLatestAddedDepartmentNo();
   console.log(`\nMost Recently Added Department Number:`);
   console.log(most_recent_department_no);
+
+  // ADD DEPARTMENT EMPLOYEE
+  await department_employees.addDepartmentEmployee({
+    emp_no: 12345,
+    dept_no: 't001',
+    from_date: new Date(),
+    to_date: new Date()
+  });
+  const addedDepartmentEmployee = await department_employees.findByEmployeeNoAndDepartmentNo(12345, 't001');
+  console.log(`\nDepartment Employee Created:`);
+  console.log(addedDepartmentEmployee);
+
+  // UPDATE DEPARTMENT EMPLOYEE
+  await department_employees.updateDepartmentEmployee({
+    emp_no: 12345,
+    dept_no: 't001',
+    from_date: new Date(),
+    to_date: new Date()
+  });
+  const updatedDepartmentEmployee = await department_employees.findByEmployeeNoAndDepartmentNo(12345, 't001');
+  console.log(`\nDepartment Employee Updated:`);
+  console.log(updatedDepartmentEmployee);
+
+  // DELETE DEPARTMENT EMPLOYEE
+  const deletedDepartmentEmployeeCount = await department_employees.deleteDepartmentEmployee([12345], ['t001']);
+  console.log(`\n${deletedDepartmentEmployeeCount} ${pluralize(deletedDepartmentEmployeeCount, "record")} deleted\n`);
 
   // DELETE DEPARTMENT
   const deletedDepartmentCount = await departments.deleteDepartment(['t001'])

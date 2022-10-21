@@ -21,7 +21,7 @@ export class Department_Employees {
     *        to_date: Date
     *    }
     * 
-    * Note: This will fail if the department is not already created.
+    * Note: This will fail if the department or the employee is not already created.
     */
     async addDepartmentEmployee(data: DepartmentEmployeeData): Promise<dept_emp | null> {
         return this.prismaDepartmentEmployee.create({ data: data })

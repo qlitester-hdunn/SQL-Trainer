@@ -7,10 +7,10 @@ const prisma = new PrismaClient()
 * Note: The emp_no is passed by the call
 */
 export async function test_salary(
-    emp_no_passed: number,
-    salary_passed: number,
-    from_date_passed: Date,
-    to_date_passed: Date,
+    emp_no_passed?: number,
+    salary_passed?: number,
+    from_date_passed?: Date,
+    to_date_passed?: Date,
 ) {
     const latest_added_employee = await prisma.employees.findMany({ orderBy: { emp_no: 'desc' } });
     const latest_added_employee_no = latest_added_employee[0].emp_no;
@@ -30,10 +30,10 @@ export async function test_salary(
 */
 export async function secondary_salary(emp_no: number) {
     const salary_data = {
-      emp_no: emp_no,
-      salary: 35,
-      from_date: new Date(),
-      to_date: new Date(),
+        emp_no: emp_no,
+        salary: 35,
+        from_date: new Date(),
+        to_date: new Date(),
     };
     return salary_data;
 }

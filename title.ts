@@ -21,7 +21,7 @@ export class Titles {
   *        emp_no: number,
   *        title: string,
   *        from_date: Date,
-  *        to_date: Date,
+  *        to_date: Date, // *OPTIONAL
   *    }
   * 
   * Note: This will fail if the employee is not already created.

@@ -56,6 +56,12 @@ To open the Cypress runner:
 ```
 npx cypress open
 ```
+
+### Navigating the Cypress Runner
+For most tests you will want to select the E2E Testing button. Then for which browser to run the tests on
+you can select either the electron or chrome browsers. Currently those are the only two browsers set up.
+After, a browser has been selected you can select which test you wish to run.
+
 ### Helpful Links
 
 MySQL Commands ref: https://medium.com/@mandeepkaur1/a-list-of-mysql-commands-c4d0d244aa5c
@@ -65,3 +71,5 @@ Setting up Prisma ref: https://www.prisma.io/docs/getting-started/setup-prisma/s
 Prisma Introspection ref: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/introspection-typescript-postgres
 
 Prisma Querying the Database ref: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres
+
+Cypress Documentation: https://docs.cypress.io/

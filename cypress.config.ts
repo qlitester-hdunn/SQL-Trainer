@@ -1,6 +1,6 @@
 import { defineConfig } from "cypress";
 import { employees_gender, employees, PrismaClient } from "@prisma/client";
-import { Employees } from './employee';
+import { Employees } from './classes/employee';
 
 const prisma = new PrismaClient();
 const employee = new Employees(prisma.employees);

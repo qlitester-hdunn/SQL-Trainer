@@ -1,9 +1,9 @@
-import { PrismaClient } from '@prisma/client'
-import { Departments } from '../../departments'
+import { PrismaClient } from '@prisma/client';
+import { Departments } from '../../classes/departments';
 import { test_department } from "../../data/department_data";
 import { expect } from '../../helpers';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main(prisma: PrismaClient) {
     const departments = new Departments(prisma.departments)

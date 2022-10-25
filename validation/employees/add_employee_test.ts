@@ -1,9 +1,9 @@
-import { PrismaClient } from '@prisma/client'
-import { Employees } from '../../employee'
+import { PrismaClient } from '@prisma/client';
+import { Employees } from '../../classes/employee';
 import { test_employee } from '../../data/employee_data';
 import { expect } from '../../helpers';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main(prisma: PrismaClient) {
     const employees = new Employees(prisma.employees);

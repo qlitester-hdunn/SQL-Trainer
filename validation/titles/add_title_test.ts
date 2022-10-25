@@ -1,11 +1,11 @@
-import { employees, titles, employees_gender, PrismaClient } from '@prisma/client'
-import { Employees } from '../../employee'
-import { Titles } from '../../title'
+import { employees, titles, PrismaClient } from '@prisma/client';
+import { Employees } from '../../classes/employee';
+import { Titles } from '../../classes/title';
 import { test_employee } from '../../data/employee_data';
-import { test_title, secondary_title } from '../../data/title_data';
+import { test_title } from '../../data/title_data';
 import { expect } from '../../helpers';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main(prisma: PrismaClient) {
     const employees = new Employees(prisma.employees);

@@ -24,7 +24,7 @@ export class Department_Managers {
     * Note: This will fail if the department or the manager is not already created.
     */
     async addDepartmentManager(data: DepartmentManagerData): Promise<dept_manager | null> {
-        return this.prismaDepartmentManager.create({ data: data })
+        return this.prismaDepartmentManager.create({ data: data });
     }
 
     /**
@@ -54,7 +54,7 @@ export class Department_Managers {
                     dept_no: dept_no
                 }
             }
-        })
+        });
     }
 
     /**
@@ -80,6 +80,6 @@ export class Department_Managers {
                     dept_no: data.dept_no
                 }
             }
-        })
+        });
     }
 }

@@ -49,9 +49,13 @@ mysql.server start
 
 To run a test file run:
 ```
-npx ts-node path/to/file.ts
+npx cypress run
 ```
 
+To open the Cypress runner:
+```
+npx cypress open
+```
 ### Helpful Links
 
 MySQL Commands ref: https://medium.com/@mandeepkaur1/a-list-of-mysql-commands-c4d0d244aa5c

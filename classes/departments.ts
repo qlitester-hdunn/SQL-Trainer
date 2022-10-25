@@ -18,7 +18,7 @@ export class Departments {
     *    }
     */
     async addDepartment(data: DepartmentData): Promise<departments | null> {
-        return this.prismaDepartment.create({ data: data })
+        return this.prismaDepartment.create({ data: data });
     }
 
     /**
@@ -45,7 +45,7 @@ export class Departments {
             where: {
                 dept_no: departmentNo,
             }
-        })
+        });
     }
 
     /**
@@ -76,6 +76,6 @@ export class Departments {
             where: {
                 dept_no: data.dept_no
             }
-        })
+        });
     }
 }

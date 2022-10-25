@@ -13,7 +13,7 @@ export class Employees {
   constructor(private readonly prismaEmployee: PrismaClient['employees']) { }
 
   async addEmployee(data: EmployeeData): Promise<employees | null> {
-    return this.prismaEmployee.create({ data: data })
+    return this.prismaEmployee.create({ data: data });
   }
 
   async deleteEmployees(employeeNumbers: [number]): Promise<number> {
@@ -31,7 +31,7 @@ export class Employees {
       where: {
         emp_no: employeeNo,
       }
-    })
+    });
   }
 
   async getLatestAddedEmployeeNo(): Promise<number> {
@@ -45,6 +45,6 @@ export class Employees {
       where: {
         emp_no: data.emp_no
       }
-    })
+    });
   }
 }

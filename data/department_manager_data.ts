@@ -1,4 +1,4 @@
-import { Employees } from "../employee";
+import { Employees } from "../classes/employee";
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()

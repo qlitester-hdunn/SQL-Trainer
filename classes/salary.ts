@@ -1,5 +1,4 @@
-import { salaries, employees, employees_gender, PrismaClient } from "@prisma/client";
-import { Employees } from './employee';
+import { salaries, PrismaClient } from "@prisma/client";
 
 type SalaryData = {
   emp_no: number,
@@ -58,7 +57,7 @@ export class Salaries {
       where: {
         emp_no: employeeNumbers,
       }
-    })
+    });
   }
 
   /**
@@ -93,6 +92,6 @@ export class Salaries {
           from_date: data.from_date,
         }
       }
-    })
+    });
   }
 }

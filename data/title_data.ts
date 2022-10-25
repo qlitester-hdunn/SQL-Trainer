@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient()
+
+const prisma = new PrismaClient();
 
 /**
 * Base title data to be used in most tests.

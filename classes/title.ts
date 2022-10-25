@@ -1,5 +1,4 @@
 import { titles, PrismaClient } from "@prisma/client";
-import { Employees } from './employee';
 
 type TitleData = {
   emp_no: number,
@@ -58,7 +57,7 @@ export class Titles {
       where: {
         emp_no: employeeNumbers,
       }
-    })
+    });
   }
 
   /**
@@ -94,6 +93,6 @@ export class Titles {
           from_date: data.from_date,
         }
       }
-    })
+    });
   }
 }

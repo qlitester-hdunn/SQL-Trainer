@@ -1,4 +1,5 @@
-import { salaries, PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
+
 const prisma = new PrismaClient()
 
 /**
@@ -21,19 +22,5 @@ export async function test_salary(
         to_date: to_date_passed || new Date(),
     };
     return salary_data;
-}
 
-/**
-* Secondary salary data to be used when a second salary is needed.
-*
-* Note: The emp_no is passed by the call
-*/
-export async function secondary_salary(emp_no: number) {
-    const salary_data = {
-        emp_no: emp_no,
-        salary: 35,
-        from_date: new Date(),
-        to_date: new Date(),
-    };
-    return salary_data;
 }

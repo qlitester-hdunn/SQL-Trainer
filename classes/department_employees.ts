@@ -24,7 +24,7 @@ export class Department_Employees {
     * Note: This will fail if the department or the employee is not already created.
     */
     async addDepartmentEmployee(data: DepartmentEmployeeData): Promise<dept_emp | null> {
-        return this.prismaDepartmentEmployee.create({ data: data })
+        return this.prismaDepartmentEmployee.create({ data: data });
     }
 
     /**
@@ -54,7 +54,7 @@ export class Department_Employees {
                     dept_no: dept_no
                 }
             }
-        })
+        });
     }
 
     /**
@@ -80,6 +80,6 @@ export class Department_Employees {
                     dept_no: data.dept_no
                 }
             }
-        })
+        });
     }
 }

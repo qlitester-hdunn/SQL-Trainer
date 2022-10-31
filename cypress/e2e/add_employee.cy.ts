@@ -1,5 +1,6 @@
 import { employees, employees_gender, prisma, PrismaClient } from "@prisma/client";
 
+//establishes the data for the employee to be added
 const employee_data = {
   emp_no: 500001,
   birth_date: '1995-12-17T00:00:00.000Z',

@@ -9,6 +9,11 @@ declare namespace Cypress {
         addEmployee(employee_data: any): Chainable<any>;
 
         /**
+     * Adds the entered Employee.
+     */
+        updateEmployee(employee_data: any): Chainable<any>;
+
+        /**
         * Deletes the entered Employee.
         */
         deleteEmployee(employee_data: any): Chainable<any>;

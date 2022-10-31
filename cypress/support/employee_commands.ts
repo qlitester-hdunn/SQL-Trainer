@@ -30,3 +30,11 @@ Cypress.Commands.add('deleteEmployee', (employee_number: employees) => {
 Cypress.Commands.add('findEmployee', (employee_number: employees) => {
     return cy.task('findEmployee', employee_number);
 });
+
+/**
+ * Updates the entered Employee
+ */
+Cypress.Commands.add('updateEmployee', (employee_number: employees) => {
+    return cy.task('updateEmployee', employee_number);
+})
+

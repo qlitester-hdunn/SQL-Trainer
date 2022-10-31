@@ -27,6 +27,9 @@ export default defineConfig({
         findEmployee: employeeData => {
           return employee.findByEmployeeNo(employeeData);
         },
+        updateEmployee: employeeData => {
+          return employee.updateEmployee(employeeData);
+        },
       });
     },
   },

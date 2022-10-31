@@ -22,5 +22,7 @@ declare namespace Cypress {
         * Finds the entered Employee.
         */
         findEmployee(employee_number: any): Chainable<any>;
+
+
     }
 }

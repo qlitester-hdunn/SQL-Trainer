@@ -30,6 +30,9 @@ export default defineConfig({
         updateEmployee: employeeData => {
           return employee.updateEmployee(employeeData);
         },
+        getLastEmployeeAdded: Number => {
+          return employee.getLatestAddedEmployeeNo();
+        }
       });
     },
   },

@@ -1,4 +1,5 @@
 import { employees_gender, employees, PrismaClient } from "@prisma/client";
+import { empty } from "@prisma/client/runtime";
 
 
 type EmployeeData = {
@@ -36,5 +37,11 @@ Cypress.Commands.add('findEmployee', (employee_number: employees) => {
  */
 Cypress.Commands.add('updateEmployee', (employee_number: employees) => {
     return cy.task('updateEmployee', employee_number);
-})
+});
 
+/**
+ * Returns the number of the last employee added to the database
+ */
+Cypress.Commands.add('getLastEmployeeAdded', () => {
+    return cy.task('getLastEmployeeAdded');
+});

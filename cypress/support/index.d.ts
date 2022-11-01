@@ -23,6 +23,11 @@ declare namespace Cypress {
         */
         findEmployee(employee_number: any): Chainable<any>;
 
+        /**
+         * Returns the number of the last Employee added.
+         */
+        getLastEmployeeAdded(): Chainable<any>;
+
 
         //BEGIN DEPARTMENT INDEX
 

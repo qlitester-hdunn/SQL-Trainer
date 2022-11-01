@@ -11,3 +11,15 @@ type DepartmentData = {
 Cypress.Commands.add('addDepartment', (department_data: departments) => {
     return cy.task('addDepartment', department_data);
 });
+
+Cypress.Commands.add('deleteDepartment', (department_data: departments) => {
+    return cy.task('deleteDepartment', department_data);
+});
+
+Cypress.Commands.add('findDepartment', (department_number: departments) => {
+    return cy.task('findDepartment', department_number);
+});
+
+Cypress.Commands.add('updateDepartment', (department_data: departments) => {
+    return cy.task('updateDepartment', department_data);
+})

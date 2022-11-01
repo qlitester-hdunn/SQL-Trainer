@@ -1,9 +1,11 @@
 import { defineConfig } from "cypress";
-import { employees_gender, employees, PrismaClient } from "@prisma/client";
+import { employees_gender, employees, departments, PrismaClient } from "@prisma/client";
 import { Employees } from './classes/employee';
+import { Departments } from "./classes/departments";
 
 const prisma = new PrismaClient();
 const employee = new Employees(prisma.employees);
+const department = new Departments(prisma.departments);
 
 export default defineConfig({
   e2e: {
@@ -30,6 +32,23 @@ export default defineConfig({
         updateEmployee: employeeData => {
           return employee.updateEmployee(employeeData);
         },
+
+        //BEGIN DEPARTMENT TASKS
+
+        addDepartment: departmentData => {
+          return department.addDepartment(departmentData);
+        },
+        findDepartment: departmentData => {
+          return department.findByDepartmentNo(departmentData);
+        },
+        updateDepartment: departmentData => {
+          return department.updateDepartment(departmentData);
+        },
+        deleteDepartment: departmentData => {
+          return department.deleteDepartment([departmentData]);
+        }
+
+
       });
     },
   },

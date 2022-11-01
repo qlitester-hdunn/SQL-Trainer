@@ -36,5 +36,5 @@ Cypress.Commands.add('findEmployee', (employee_number: employees) => {
  */
 Cypress.Commands.add('updateEmployee', (employee_number: employees) => {
     return cy.task('updateEmployee', employee_number);
-})
+});
 

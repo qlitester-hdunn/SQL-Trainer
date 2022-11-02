@@ -29,16 +29,28 @@ const employee3_data = {
 describe('Employee', () => {
     it('Grab Latest Employee', () => {
         //ensure none of the clients above exist currently
+        cy.deleteEmployee(employee1_data.emp_no);
+        cy.deleteEmployee(employee2_data.emp_no);
+        cy.deleteEmployee(employee3_data.emp_no);
 
         //create employee 1 and employee 3
+        cy.addEmployee(employee1_data);
+        cy.addEmployee(employee3_data);
 
         //Find the emp_no of the most recent employee, verifying it is equal to employee 3's emp_no
-
+        cy.getLastEmployeeAdded().then((found_emp_no) => {
+            expect(found_emp_no).to.equal(employee3_data.emp_no);
+        })
         // create employee 2
+        cy.addEmployee(employee2_data);
 
         //Find emp_no of the most recent employee, again verifying that it matchs employee 3's emp_no, as it has the highest emp_no
-
+        cy.getLastEmployeeAdded().then((found_emp_no) => {
+            expect(found_emp_no).to.equal(employee3_data.emp_no);
+        })
         //clean up 
-
+        cy.deleteEmployee(employee1_data.emp_no);
+        cy.deleteEmployee(employee2_data.emp_no);
+        cy.deleteEmployee(employee3_data.emp_no);
     })
 });

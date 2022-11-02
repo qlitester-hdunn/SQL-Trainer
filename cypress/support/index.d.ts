@@ -44,6 +44,7 @@ declare namespace Cypress {
         //deletes the desired department
         deleteDepartment(department_data: any): Chainable<any>;
 
+        getLastDepartmentAdded(): Chainable<any>;
 
         //BEGIN SALARY INDEX
         addSalary(salary_data: any): Chainable<any>;

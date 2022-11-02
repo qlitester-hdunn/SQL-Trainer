@@ -54,6 +54,10 @@ export default defineConfig({
           return department.deleteDepartment([departmentData]);
         },
 
+        getLastDepartmentAdded: Number => {
+          return department.getLatestAddedDepartmentNo();
+        },
+
         //BEGIN SALARIES TASKS
 
         addSalary: salaryData => {

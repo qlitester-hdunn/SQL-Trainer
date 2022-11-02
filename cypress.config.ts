@@ -2,10 +2,13 @@ import { defineConfig } from "cypress";
 import { employees_gender, employees, departments, PrismaClient } from "@prisma/client";
 import { Employees } from './classes/employee';
 import { Departments } from "./classes/departments";
+import { Salaries } from "./classes/salary";
+import { empty } from "@prisma/client/runtime";
 
 const prisma = new PrismaClient();
 const employee = new Employees(prisma.employees);
 const department = new Departments(prisma.departments);
+const salaries = new Salaries(prisma.salaries);
 
 export default defineConfig({
   e2e: {
@@ -49,9 +52,25 @@ export default defineConfig({
         },
         deleteDepartment: departmentData => {
           return department.deleteDepartment([departmentData]);
+        },
+
+        //BEGIN SALARIES TASKS
+
+        addSalary: salaryData => {
+          return salaries.addSalary(salaryData)
+        },
+        findSalary: employeeNumber => {
+          return salaries.findSalary(employeeNumber)
+        },
+        updateSalary: salaryData => {
+          return salaries.updateSalary(salaryData)
+        },
+        getMostRecentSalariesEmpNo: () => {
+          return salaries.getLatestAddedSalaryEmpNo()
+        },
+        deleteSalaries: employeeNumber => {
+          return salaries.deleteSalaries(employeeNumber)
         }
-
-
       });
     },
   },

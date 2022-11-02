@@ -32,11 +32,9 @@ export default defineConfig({
         updateEmployee: employeeData => {
           return employee.updateEmployee(employeeData);
         },
-<<<<<<< HEAD
         getLastEmployeeAdded: Number => {
           return employee.getLatestAddedEmployeeNo();
-        }
-=======
+        },
 
         //BEGIN DEPARTMENT TASKS
 
@@ -54,7 +52,6 @@ export default defineConfig({
         }
 
 
->>>>>>> main
       });
     },
   },

@@ -4,11 +4,13 @@ import { Employees } from './classes/employee';
 import { Departments } from "./classes/departments";
 import { Salaries } from "./classes/salary";
 import { empty } from "@prisma/client/runtime";
+import { Titles } from "./classes/title";
 
 const prisma = new PrismaClient();
 const employee = new Employees(prisma.employees);
 const department = new Departments(prisma.departments);
 const salaries = new Salaries(prisma.salaries);
+const title = new Titles(prisma.titles);
 
 export default defineConfig({
   e2e: {
@@ -74,6 +76,23 @@ export default defineConfig({
         },
         deleteSalaries: employeeNumber => {
           return salaries.deleteSalaries(employeeNumber)
+        },
+
+        //Title configs
+        addTitle: titleData => {
+          return title.addTitle(titleData);
+        },
+        findTitle: employeeNumber => {
+          return title.findTitle(employeeNumber);
+        },
+        updateTitle: titleData => {
+          return title.updateTitle(titleData);
+        },
+        getMostRecentTitle: () => {
+          return title.getLatestAddedTitleEmpNo();
+        },
+        deleteTitle: employeeNumber => {
+          return title.deleteTitles(employeeNumber);
         }
       });
     },

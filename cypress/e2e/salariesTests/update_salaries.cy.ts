@@ -11,7 +11,7 @@ const salary_data2 = {
     emp_no: 500001,
     salary: 6000,
     from_date: '1995-12-17T00:00:00.000Z',
-    to_date: '1995-12-17T00:00:00.100Z'
+    to_date: '1995-12-19T00:00:00.000Z'
 };
 
 const employee_data = {

@@ -22,4 +22,8 @@ Cypress.Commands.add('findDepartment', (department_number: departments) => {
 
 Cypress.Commands.add('updateDepartment', (department_data: departments) => {
     return cy.task('updateDepartment', department_data);
-})
+});
+
+Cypress.Commands.add('getLastDepartmentAdded', () => {
+    return cy.task("getLastDepartmentAdded");
+});

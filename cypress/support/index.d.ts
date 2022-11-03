@@ -67,7 +67,7 @@ declare namespace Cypress {
 
         findTitle(employee_number: any): Chainable<any>;
 
-        getLatestAddedTitleEmpNo(): Chainable<any>;
+        getMostRecentTitle(): Chainable<any>;
 
         updateTitle(title_data: any): Chainable<any>;
 

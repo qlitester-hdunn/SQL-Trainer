@@ -63,7 +63,7 @@ declare namespace Cypress {
         //BEGIN TITLE INDEX
         addTitle(title_data: any): Chainable<any>;
 
-        deleteTitles(employee_numbers: any): Chainable<any>;
+        deleteTitle(employee_numbers: any): Chainable<any>;
 
         findTitle(employee_number: any): Chainable<any>;
 

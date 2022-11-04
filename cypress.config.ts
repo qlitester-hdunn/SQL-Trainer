@@ -5,12 +5,19 @@ import { Departments } from "./classes/departments";
 import { Salaries } from "./classes/salary";
 import { empty } from "@prisma/client/runtime";
 import { Titles } from "./classes/title";
+import { Department_Employees } from "./classes/department_employees";
+import { Department_Managers } from "./classes/department_managers";
+import { test_title } from "./data/title_data";
+import { any } from "cypress/types/bluebird";
+import milliseconds from "mocha/lib/ms";
 
 const prisma = new PrismaClient();
 const employee = new Employees(prisma.employees);
 const department = new Departments(prisma.departments);
 const salaries = new Salaries(prisma.salaries);
 const title = new Titles(prisma.titles);
+const department_employees = new Department_Employees(prisma.dept_emp);
+const department_managers = new Department_Managers(prisma.dept_manager);
 
 export default defineConfig({
   e2e: {
@@ -56,7 +63,7 @@ export default defineConfig({
           return department.deleteDepartment([departmentData]);
         },
 
-        getLastDepartmentAdded: Number => {
+        getLastDepartmentAdded: empty => {
           return department.getLatestAddedDepartmentNo();
         },
 
@@ -93,7 +100,23 @@ export default defineConfig({
         },
         deleteTitle: employeeNumber => {
           return title.deleteTitles(employeeNumber);
+        },
+
+        // DEPT MANAGERS 
+        addDepartmentManager: departmentManagerData => {
+          return department_managers.addDepartmentManager(departmentManagerData);
+        },
+        deleteDepartmentManager: departmentManagerData => {
+          return department_managers.deleteDepartmentManager(departmentManagerData.emp_no, departmentManagerData.dept_no);
+        },
+        findDepartmentManager: departmentManagerData => {
+          return department_managers.findByEmployeeNoAndDepartmentNo(departmentManagerData.emp_no, departmentManagerData.dept_no)
+        }, 
+        updateDepartmentManager: departmentManagerData => {
+          return department_managers.updateDepartmentManager(departmentManagerData)
         }
+
+        // DEPT EMPLOYEES
       });
     },
   },

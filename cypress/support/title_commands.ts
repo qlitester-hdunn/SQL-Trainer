@@ -20,10 +20,10 @@ Cypress.Commands.add("updateTitle", (titleData: titles) => {
     return cy.task("updateTitle", titleData)
 });
 
-Cypress.Commands.add("getLatestAddedTitleEmpNo", () => {
-    return cy.task("getLatestAddedTitleEmpNo")
+Cypress.Commands.add("getMostRecentTitle", () => {
+    return cy.task("getMostRecentTitle")
 });
 
-Cypress.Commands.add("deleteTitles", (empNo: titles) => {
-    return cy.task("deleteTitles", empNo)
+Cypress.Commands.add("deleteTitle", (empNo: titles) => {
+    return cy.task("deleteTitle", empNo)
 });

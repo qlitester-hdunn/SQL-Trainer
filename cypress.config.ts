@@ -121,16 +121,16 @@ export default defineConfig({
           return department_employees.addDepartmentEmployee(departmentEmployeeData);
         },
 
-        deleteDepartmentEmployee: departmentEmployeeData => {
-          return department_employees.deleteDepartmentEmployee(departmentEmployeeData.emp_no, departmentEmployeeData.dept_no);
+        deleteDepartmentEmployee: ({ departmentEmployeeEmpNo, departmentEmployeeDataDeptNo }) => {
+          return department_employees.deleteDepartmentEmployee(departmentEmployeeEmpNo, departmentEmployeeDataDeptNo);
         },
 
         updateDepartmentEmployee: departmentEmployeeData => {
           return department_employees.updateDepartmentEmployee(departmentEmployeeData);
         },
 
-        findDepartmentEmployee: departmentEmployeeData => {
-          return department_employees.findByEmployeeNoAndDepartmentNo(departmentEmployeeData.emp_no, departmentEmployeeData.dept_no);
+        findDepartmentEmployee: ({ departmentEmployeeEmpNo, departmentEmployeeDataDeptNo }) => {
+          return department_employees.findByEmployeeNoAndDepartmentNo(departmentEmployeeEmpNo, departmentEmployeeDataDeptNo);
         }
       });
     },

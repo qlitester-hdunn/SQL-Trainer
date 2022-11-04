@@ -83,10 +83,10 @@ declare namespace Cypress {
         //Begin Department Employee index
         addDepartmentEmployee(Department_Employee_data: any): Chainable<any>;
 
-        deleteDepartmentEmployee(Department_Employee_data: any): Chainable<any>;
+        deleteDepartmentEmployee(departmentEmployeeEmpNO: any, departmentEmployeeDepNo: any): Chainable<any>;
 
         updateDepartmentEmployee(Department_Employee_data: any): Chainable<any>;
 
-        findDepartmentEmployee(Department_Employee_data: any): Chainable<any>;
+        findDepartmentEmployee(departmentEmployeeEmpNO: any, departmentEmployeeDepNo: any): Chainable<any>;
     }
 }

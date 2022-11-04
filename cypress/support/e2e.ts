@@ -18,6 +18,7 @@ import './employee_commands'
 import './department_commands'
 import './salaries_commands'
 import './title_commands'
+import './department_employee_commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

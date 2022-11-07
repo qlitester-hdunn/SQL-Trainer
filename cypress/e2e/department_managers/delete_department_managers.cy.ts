@@ -1,5 +1,4 @@
 import { employees_gender } from "@prisma/client";
-import exp from "constants";
 
 const department_manager_data = {
     emp_no: 500001,

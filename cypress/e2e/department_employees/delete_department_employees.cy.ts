@@ -24,7 +24,7 @@ const departmentEmployeeData = {
 //Begin Test
 
 describe('Department Employee', () => {
-    it('Create Department Employee', () => {
+    it('Delete Department Employee', () => {
         //esnure no duplicates can exist of items to be made
         cy.deleteEmployee(employeeData.emp_no);
         cy.deleteDepartment(departmentData.dept_no);

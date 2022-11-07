@@ -27,7 +27,6 @@ describe('Department Employee', () => {
     it('Create Department Employee', () => {
         //esnure no duplicates can exist of items to be made
         cy.deleteEmployee(employeeData.emp_no);
-        cy.deleteEmployee(500033)
         cy.deleteDepartment(departmentData.dept_no);
         cy.deleteDepartmentEmployee(departmentEmployeeData.emp_no, departmentEmployeeData.dept_no)
 

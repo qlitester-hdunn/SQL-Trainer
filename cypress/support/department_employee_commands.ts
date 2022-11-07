@@ -13,13 +13,13 @@ Cypress.Commands.add("addDepartmentEmployee", (departmentEmployeeData: dept_emp)
 })
 
 Cypress.Commands.add("findDepartmentEmployee", (departmentEmployeeData: dept_emp) => {
-    return cy.task("findDepartmentEmployee", (departmentEmployeeData.emp_no, departmentEmployeeData.dept_no))
+    return cy.task("findDepartmentEmployee", departmentEmployeeData)
 })
 
 Cypress.Commands.add("updateDepartmentEmployee", (departmentEmployeeData: dept_emp) => {
     return cy.task("updateDepartmentEmployee", departmentEmployeeData)
 })
 
-Cypress.Commands.add("deleteDepartmentEmployee", (departmentEmployeeData: dept_emp) => {
-    return cy.task("deleteDepartmentEmployee", (departmentEmployeeData.emp_no, departmentEmployeeData.dept_no))
+Cypress.Commands.add("deleteDepartmentEmployee", (departmentEmployeeEmpNo: dept_emp, departmentEmployeeDeptNo: dept_emp) => {
+    return cy.task("deleteDepartmentEmployee", { departmentEmployeeEmpNo, departmentEmployeeDeptNo })
 })

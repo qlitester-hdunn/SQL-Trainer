@@ -27,6 +27,7 @@ describe('Department Employee', () => {
     it('Create Department Employee', () => {
         //esnure no duplicates can exist of items to be made
         cy.deleteEmployee(employeeData.emp_no);
+        cy.deleteEmployee(500033)
         cy.deleteDepartment(departmentData.dept_no);
         cy.deleteDepartmentEmployee(departmentEmployeeData.emp_no, departmentEmployeeData.dept_no)
 
@@ -34,7 +35,8 @@ describe('Department Employee', () => {
         cy.addDepartment(departmentData);
         cy.addDepartmentEmployee(departmentEmployeeData)
 
-        cy.findDepartmentEmployee(departmentEmployeeData.emp_no, departmentEmployeeData.dept_no).then((foundDepartmentEmployee) => {
+
+        cy.findDepartmentEmployee(departmentEmployeeData).then((foundDepartmentEmployee) => {
             expect(foundDepartmentEmployee.emp_no).to.equal(departmentEmployeeData.emp_no);
             expect(foundDepartmentEmployee.dept_no).to.equal(departmentEmployeeData.dept_no);
             expect(foundDepartmentEmployee.from_date).to.equal(departmentEmployeeData.from_date);

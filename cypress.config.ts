@@ -129,8 +129,8 @@ export default defineConfig({
           return department_employees.updateDepartmentEmployee(departmentEmployeeData);
         },
 
-        findDepartmentEmployee: ({ departmentEmployeeEmpNo, departmentEmployeeDataDeptNo }) => {
-          return department_employees.findByEmployeeNoAndDepartmentNo(departmentEmployeeEmpNo, departmentEmployeeDataDeptNo);
+        findDepartmentEmployee: departmentEmployeeData => {
+          return department_employees.findByEmployeeNoAndDepartmentNo(departmentEmployeeData);
         }
       });
     },

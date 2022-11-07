@@ -87,6 +87,6 @@ declare namespace Cypress {
 
         updateDepartmentEmployee(Department_Employee_data: any): Chainable<any>;
 
-        findDepartmentEmployee(departmentEmployeeEmpNO: any, departmentEmployeeDepNo: any): Chainable<any>;
+        findDepartmentEmployee(Department_Employee_data: any): Chainable<any>;
     }
 }

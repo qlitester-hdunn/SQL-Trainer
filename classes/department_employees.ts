@@ -46,12 +46,12 @@ export class Department_Employees {
     /**
     * Searches for an employee in the entered department. 
     */
-    async findByEmployeeNoAndDepartmentNo(emp_no: number, dept_no: string): Promise<dept_emp | null> {
+    async findByEmployeeNoAndDepartmentNo(data: DepartmentEmployeeData): Promise<dept_emp | null> {
         return this.prismaDepartmentEmployee.findUnique({
             where: {
                 emp_no_dept_no: {
-                    emp_no: emp_no,
-                    dept_no: dept_no
+                    emp_no: data.emp_no,
+                    dept_no: data.dept_no
                 }
             }
         });

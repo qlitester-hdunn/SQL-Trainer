@@ -45,12 +45,7 @@ async function main(prisma: PrismaClient) {
   );
 
   const department_employee =
-    await deptartment_employees.findByEmployeeNoAndDepartmentNo({
-      emp_no: expected_department_employee_information.emp_no,
-      dept_no: expected_department_employee_information.dept_no,
-      from_date: new Date(),
-      to_date: new Date(),
-    });
+    await deptartment_employees.findByEmployeeNoAndDepartmentNo(expected_department_employee_information);
 
   // Employee number validation
   error_count += expect(
